@@ -6,6 +6,7 @@ import knex from "./database_client.js";
 import nestedRouter from "./routers/nested.js";
 import { mealsRouter } from "./routers/meals.js";
 import { reservationsRouter } from "./routers/reservations.js";
+import { reviewsRouter } from "./routes/reviewsRouter.js";
 
 app.use(express.json()); // Middleware to parse JSON
 app.use("/api/meals", mealsRouter);
@@ -14,7 +15,7 @@ app.use("/api/reservations", reservationsRouter);
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use("/api/reviews", reviewsRouter)
 const apiRouter = express.Router();
 
 // Get future meals
@@ -51,3 +52,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+export default app;
