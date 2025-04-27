@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+"use client";
+
+import { useState, useEffect, use } from "react";
+import Meal from "./Meal"; // Assuming Meal is a component that displays individual meal details
 
 const MealsList = () => {
   const [meals, setMeals] = useState([]);
 
   useEffect(() => {
     const fetchMeals = async () => {
-
       const response = await fetch('/api/routers/meal.js');
       const data = await response.json();
       setMeals(data);
@@ -19,13 +21,11 @@ const MealsList = () => {
       {meals.length === 0 ? (
         <p>Loading meals...</p>
       ) : (
-        meals.map((meal) => (
-          <div key={meal.id} className="meal-item mb-4 p-2 border rounded-lg">
-            <p className="font-bold text-lg">{meal.title}</p>
-            <p className="text-gray-700">{meal.description}</p>
-            <p className="text-green-600 font-semibold">${meal.price.toFixed(2)}</p>
-          </div>
-        ))
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+         {meals.map((meal) => (
+            <Meal key={meal.id} meal={meal} />
+          ))}
+        </div>
       )}
     </div>
   );
