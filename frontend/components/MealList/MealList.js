@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect, use } from "react";
-import Meal from "./Meal"; // Assuming Meal is a component that displays individual meal details
+import Meal from "../Meal/Meal"; // Assuming Meal is a component that displays individual meal details
 
-const MealsList = () => {
+const MealsList = ({ limit }) => {
   const [meals, setMeals] = useState([]);
 
   useEffect(() => {

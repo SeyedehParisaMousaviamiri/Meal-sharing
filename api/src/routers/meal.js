@@ -52,6 +52,7 @@ mealsRouter.get("/", async (req, res) => {
         const meals = await query;
         res.status(200).json(meals);
     } catch (error) {
+        console.log(error);
         res.status(500).json({ message: "Error fetching meals", error });
     }
 });

@@ -1,10 +1,10 @@
-const express = require("express");
-const knex = require("../database_client.js");
+import express from "express";
+/* const knex = require("../database_client.js"); */
 
 export const reviewsRouter = express.Router();
 
 // GET all reviews
-router.get("/", async (req, res) => {
+reviewsRouter.get("/", async (req, res) => {
   try {
     const reviews = await knex("reviews").select("*");
     res.json(reviews);
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 });
 
 // GET reviews for a specific meal
-router.get("/meals/:meal_id/reviews", async (req, res) => {
+reviewsRouter.get("/meals/:meal_id/reviews", async (req, res) => {
   try {
     const mealId = req.params.meal_id;
     const reviews = await knex("reviews").where("meal_id", mealId);
@@ -25,7 +25,7 @@ router.get("/meals/:meal_id/reviews", async (req, res) => {
 });
 
 // GET a review by ID
-router.get("/:id", async (req, res) => {
+reviewsRouter.get("/:id", async (req, res) => {
   try {
     const review = await knex("reviews").where("id", req.params.id).first();
     if (!review) return res.status(404).json({ message: "Review not found" });
@@ -36,7 +36,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // POST a new review
-router.post("/", async (req, res) => {
+reviewsRouter.post("/", async (req, res) => {
   try {
     const [id] = await knex("reviews").insert(req.body);
     const newReview = await knex("reviews").where("id", id).first();
@@ -47,7 +47,7 @@ router.post("/", async (req, res) => {
 });
 
 // PUT update a review
-router.put("/:id", async (req, res) => {
+reviewsRouter.put("/:id", async (req, res) => {
   try {
     const updated = await knex("reviews").where("id", req.params.id).update(req.body);
     if (!updated) return res.status(404).json({ message: "Review not found" });
@@ -59,7 +59,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE a review
-router.delete("/:id", async (req, res) => {
+reviewsRouter.delete("/:id", async (req, res) => {
   try {
     const deleted = await knex("reviews").where("id", req.params.id).del();
     if (!deleted) return res.status(404).json({ message: "Review not found" });
@@ -69,4 +69,4 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-module.exports = router;
+
