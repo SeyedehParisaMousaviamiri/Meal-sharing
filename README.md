@@ -4,19 +4,6 @@ Welcome to the **Meal Sharing App**! This project enables users to share home-co
 
 ---
 
-## 📝 Table of Contents
-
-- [Features](#-features)
-- [Demo](#-demo)
-- [Tech Stack](#-tech-stack)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [API Endpoints](#-api-endpoints)
-- [Contributing](#-contributing)
-- [License](#-license)
-
----
-
 ## 🎯 Features
 
 - **User Authentication**: Sign up and log in to post and book meals.  
