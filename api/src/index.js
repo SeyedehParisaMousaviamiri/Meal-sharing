@@ -19,6 +19,33 @@ app.use(bodyParser.json());
 app.use("/api/reviews", reviewsRouter)
 const apiRouter = express.Router();
 
+const meals = [
+  {
+    id: 1,
+    title: "Spaghetti Carbonara",
+    description: "Classic Italian pasta dish with eggs, cheese, pancetta, and pepper.",
+    price: 12.99,
+    image: "",
+    when: "2023-10-01T12:00:00Z"
+  },
+  {
+    id: 2,
+    title: "Margherita Pizza",
+    description: "Traditional pizza with fresh tomatoes, mozzarella cheese, and basil.",
+    price: 10.99,
+    image: "",
+    when: "2023-10-02T18:00:00Z"
+  },
+  {
+    id: 3,
+    title: "Caesar Salad",
+    description: "Crisp romaine lettuce with Caesar dressing, croutons, and parmesan cheese.",
+    price: 8.99,
+    image: "",
+    when: "2023-10-03T13:00:00Z"
+  }
+]
+
 // Get future meals
 apiRouter.get("/future-meals", (req, res) => {
   res.json(meals.filter((meal) => new Date(meal.when) > new Date()));

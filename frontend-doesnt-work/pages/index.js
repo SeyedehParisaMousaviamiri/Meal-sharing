@@ -1,5 +1,5 @@
-import MealsList from '../components/MealsList';
-import Layout from '../components/Layout';
+import MealsList from '../components/MealList/MealList.js';
+import Layout from '../components/Layout/Layout.js';
 import Link from 'next/link';
 
 export default function Home() {

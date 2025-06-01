@@ -8,10 +8,8 @@ const MealsList = ({ limit }) => {
 
   useEffect(() => {
     const fetchMeals = async () => {
-      const response = await fetch('http://localhost:3001/api/all-meals');
+      const response = await fetch('/api/routers/meal.js');
       const data = await response.json();
-      console.log(data);
-      
       setMeals(data);
     };
 
