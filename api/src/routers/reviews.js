@@ -1,7 +1,7 @@
 import express from "express";
 /* const knex = require("../database_client.js"); */
 
-export const reviewsRouter = express.Router();
+const reviewsRouter = express.Router();
 
 // GET all reviews
 reviewsRouter.get("/", async (req, res) => {
@@ -70,3 +70,4 @@ reviewsRouter.delete("/:id", async (req, res) => {
 });
 
 
+export default reviewsRouter;

@@ -11,7 +11,10 @@ const Meal = ({ meal }) => {
       />
       <h2 className="font-bold text-xl mb-2">{meal.title}</h2>
       <p className="text-gray-600 mb-2">{meal.description}</p>
-      <p className="text-green-600 font-semibold text-lg">${meal.price.toFixed(2)}</p>
+      <p className="text-gray-700">
+  Price: {meal.price ? Number(meal.price).toFixed(2) : "N/A"} DKK
+</p>
+
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import express from "express";
 import knex from "../database_client.js";
 
-export const reservationsRouter = express.Router();
+const reservationsRouter = express.Router();
 
 // GET all reservations
 reservationsRouter.get("/", async (req, res) => {
@@ -63,3 +63,4 @@ reservationsRouter.delete("/:id", async (req, res) => {
         res.status(500).json({ message: "Error deleting reservation", error });
     }
 });
+export default reservationsRouter;
