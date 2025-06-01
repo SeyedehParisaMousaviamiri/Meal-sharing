@@ -1,0 +1,38 @@
+.meal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .meal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .meal-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.see-more {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.see-more-btn {
+  background-color: #0070f3;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.see-more-btn:hover {
+  background-color: #005bb5;
+}

@@ -1,16 +1,30 @@
-import MealsList from '../components/MealList/MealList.js';
-import Layout from '../components/Layout/Layout.js';
-import Link from 'next/link';
+'use client';
+
+import MealsList from '../components/MealList/MealList';
+import Layout from '../components/Layout/Layout';
+import { useRouter } from 'next/navigation';
+import './Home.css';
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <Layout>
-      <h1>Welcome to Meal Sharing</h1>
-      <h2>Discover and reserve meals shared by locals</h2>
-      <MealsList showOnlySome={true} />
-      <Link href="/meals">
-        <button>See More Meals</button>
-      </Link>
+      <div className="hero-section">
+  <h1 className="main-title">Welcome to HackYourFuture Meal Sharing</h1>
+  <p className="intro-text">
+    Discover delicious meals prepared with love. Book your seat and enjoy
+    a great dining experience!
+  </p>
+</div>
+<div>
+  {/* Meals list */}
+  <MealsList
+    limit={3}
+    buttonText="See More Meals"
+    onButtonClick={() => router.push('/meals')}
+  />
+</div>
     </Layout>
   );
 }

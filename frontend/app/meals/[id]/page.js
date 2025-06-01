@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Layout from '../../../components/Layout/Layout';
+import './Mealdetails.css';
 
 export default function MealDetailPage() {
   const { id } = useParams();
@@ -112,8 +113,17 @@ export default function MealDetailPage() {
     <Layout>
       <div className="meal-detail">
         <h2>{meal.title}</h2>
-        <p>{meal.description}</p>
-        <p>Price: {meal.price} DKK</p>
+        
+<img src={`/images/${meal.id}.jpg`} alt={meal.title} className="meal-image" />
+
+
+        <p><strong>Description:</strong> {meal.description}</p>
+<p><strong>Price:</strong> {meal.price} DKK</p>
+<p><strong>Location:</strong> {meal.location || 'Not specified'}</p>
+<p><strong>Available from:</strong> {meal.available_from?.split('T')[0] || 'N/A'}</p>
+<p><strong>Date & Time:</strong> {meal.when ? new Date(meal.when).toLocaleString() : 'TBD'}</p>
+<p><strong>Max Reservations:</strong> {meal.max_reservations}</p>
+<p><strong>Created:</strong> {new Date(meal.created_date).toLocaleDateString()}</p>
 
         {/* Reviews Section */}
         <section>
